@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="carNumbers1"></p>
+    <p id="carNumbers2"></p>
+</body>
+<script>
+    const carPower = [129, 50, 150, 88, 400, 250, 300];
+    document.getElementById("carNumbers1").innerHTML = "Sorted: " + sortedNumbers.join(", ");
+
+    // Sort numbers in ascending order
+    sortedNumbers = carPower.sort((a, b) => a - b);
+
+    document.getElementById("carNumbers2").innerHTML = "Sorted: " + sortedNumbers.join(", ");
+</script>
+
+</html>

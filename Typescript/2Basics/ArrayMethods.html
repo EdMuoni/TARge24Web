@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+</head>
+<body>
+    <h2>Array Length</h2>
+    <p id="car"></p>
+
+    <h2>Shift</h2>
+    <p id="carShift1"></p>
+    <p id="carShift2"></p>
+
+    <h2>Unshift</h2>
+    <p id="carUnshift1"></p>
+    <p id="carUnshift2"></p>
+
+    <h2>Delete</h2>
+    <p id="carDelete1"></p>
+    <p id="carDelete2"></p>
+
+    <h2>Pop</h2>
+    <p id="carPop1"></p>
+    <p id="carPop2"></p>
+
+    <h2>Splice</h2>
+    <p id="carSplice1"></p>
+    <p id="carSplice2"></p>
+</body>
+
+<script>
+    let cars = ["Volvo", "BMW", "Ford", "Audi"];
+    
+    // Get initial array length
+    document.getElementById("car").innerHTML = "Array length: " + cars.length;
+
+    // Shift (removes first element)
+    document.getElementById("carShift1").innerHTML = "Before Shift: " + cars.join(", ");
+    cars.shift();
+    document.getElementById("carShift2").innerHTML = "After Shift: " + cars.join(", ");
+
+    // Unshift (adds element to the beginning)
+    document.getElementById("carUnshift1").innerHTML = "Before Unshift: " + cars.join(", ");
+    cars.unshift("Tesla");
+    document.getElementById("carUnshift2").innerHTML = "After Unshift: " + cars.join(", ");
+
+    // Delete an element (not recommended, use splice instead)
+    document.getElementById("carDelete1").innerHTML = "Before Delete: " + cars.join(", ");
+    delete cars[0]; // This creates an empty slot, not removing the element
+    document.getElementById("carDelete2").innerHTML = "After Delete: " + cars.join(", ");
+
+    // Pop (removes last element)
+    document.getElementById("carPop1").innerHTML = "Before Pop: " + cars.join(", ");
+    cars.pop();
+    document.getElementById("carPop2").innerHTML = "After Pop: " + cars.join(", ");
+
+    // Splice (adds/removes elements)
+    document.getElementById("carSplice1").innerHTML = "Before Splice: " + cars.join(", ");
+    cars.splice(2, 0, "Opel", "Mercedes");
+    document.getElementById("carSplice2").innerHTML = "After Splice: " + cars.join(", ");
+
+</script>
+</html>
