@@ -1,0 +1,2 @@
+var superHeroes = [];
+var heroPower;
