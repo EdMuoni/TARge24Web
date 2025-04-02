@@ -1,29 +1,27 @@
-let greetings = "HELLO asdasd";
+let greetings = "Hello asdasd";
 
 let lowerGreetings = greetings.toLowerCase();
 
-console.log(greetings);
+console.log(lowerGreetings);
 
 //number
-let userId = 121851316486;
+let userId = 2353456;
 
 userId.toFixed(5);
 
 console.log(userId);
 
-//boolean
-let isLoggedIn = false;
+//bool
+let isLoggedIn = false
 
-console.log(isLoggedIn);
+console.log(isLoggedIn)
 
 //any
 let hero;
-function getHero() {
-    return "thor";
+function getHero(){
+    return "Thor"
 }
 
-hero = getHero();
-
-console.log(hero);
-
-
+hero = getHero()
+console.log(hero)
+//export{}

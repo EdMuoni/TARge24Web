@@ -1,4 +1,4 @@
 //let on muutuja defineerija ja seal järel on muutuja nimetus
-let mysuser = {name: "Max", age: 10};
+let myuser = {name: "asdasd", age: 10}
 
-console.log(mysuser);
+console.log(myuser)

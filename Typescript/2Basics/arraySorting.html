@@ -6,17 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="carNumbers1"></p>
+    <p id="carNumbers"></p>
     <p id="carNumbers2"></p>
 </body>
 <script>
-    const carPower = [129, 50, 150, 88, 400, 250, 300];
-    document.getElementById("carNumbers1").innerHTML = "Sorted: " + sortedNumbers.join(", ");
+    const carPower = [129, 150, 40, 250, 300];
+    document.getElementById("carNumbers").innerHTML = carPower;
 
-    // Sort numbers in ascending order
-    sortedNumbers = carPower.sort((a, b) => a - b);
+    //sorteerida numbrid ära
+    carPower.sort(function(a, b){return a - b});
+    document.getElementById("carNumbers2").innerHTML = carPower;
 
-    document.getElementById("carNumbers2").innerHTML = "Sorted: " + sortedNumbers.join(", ");
 </script>
-
 </html>
