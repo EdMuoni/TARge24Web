@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+</head>
+<body>
+    <h2>Palgakalkulaator</h2>
+
+    <p id="grossSalary"><h3>GrossSalary</h3></p>
+
+    <p id="TaxFree"><h3>TaxFree</h3></p>
+
+    <p id="incomeTax"><h3>IncomeTax</h3"></p>
+
+    <p id="NetSalary"><h3>NetSalary</h3"></p>
+
+</body>
+<script>
+    //Palga kalkulaator
+    //1. Sina sisestad brutotasu ja valem arvutab välja netotasu.
+    //2. Kokku peab olema kolm erinevat meetodit. 
+    // Enne kui meetod algab, siis peab olema kontroll, 
+    // et millist meetodi hakatakse kasutama ja sisestatud palgasumma 
+    // peab minema edasi järgmisse meetodi.
+    //3. Netotasu peab arvutama selliselt välja, et sina ei peaks 
+    // tuludeklaratsiooni ajal juurde maksma ega saa pärast riigilt raha 
+    // juurde kuna oled rohkem maksnud.
+    //4. Kood peab olema inglisekeelne.
+    //Palgakalkulaator:
+    //https://www.kalkulaator.ee/et/palgakalkulaator
+    //Palga arvutamise valem:
+    //https://www.emta.ee/et/maksuvaba-tulu
+    let grossSalary = 1500;
+    document.getElementById("grossSalary").innerHTML = "Brutotasu: " + grossSalary.toFixed(2) + " eurot";
+
+    let TaxFree;
+    if (grossSalary <= 1200) {
+        TaxFree = 654;
+    } else if (grossSalary <= 2099) {
+        TaxFree = 654 - 0.72667 * (grossSalary - 1200);
+    } else {
+        TaxFree = 0;
+    };
+
+    document.getElementById("TaxFree").innerHTML = "Maksuvaba sissetulek: " + 
+    TaxFree.toFixed(2) + " eurot";
+
+    let taxableIncome = grossSalary - TaxFree;
+    document.getElementById("taxableIncome").innerHTML = "Sissetulek: " + 
+    taxableIncome.toFixed(2) + " eurot";
+
+    let incomeTax = taxableIncome * 0.22;
+    document.getElementById("incomeTax").innerHTML = "Sissetulek: " + 
+    incomeTax.toFixed(2) + " eurot";
+
+    let NetSalary = taxableIncome - incomeTax;
+    document.getElementById("NetSalary").innerHTML = "Sissetulek: " + 
+    NetSalary.toFixed(2) + " eurot";
+</script>
+</html>

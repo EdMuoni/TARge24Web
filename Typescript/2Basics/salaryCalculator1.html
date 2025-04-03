@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+</head>
+<body>
+    <h2>Salary Calculator (Estonian Tax System)</h2>
+
+    <h3>Results for Annual Gross Salary 14,400€:</h3>
+    <p>Monthly Gross Salary: <span id="monthlyGrossSalary1"></span></p>
+    <p>Annual Tax-Free Income: <span id="annualTaxFreeIncome1"></span></p>
+    <p>Monthly Tax-Free Income: <span id="monthlyTaxFreeIncome1"></span></p>
+    <p>Monthly Income Tax (24%): <span id="monthlyIncomeTax1"></span></p>
+    <p>Monthly Net Salary: <span id="monthlyNetSalary1"></span></p>
+
+    <h3>Results for Annual Gross Salary 20,200€:</h3>
+    <p>Monthly Gross Salary: <span id="monthlyGrossSalary2"></span></p>
+    <p>Annual Tax-Free Income: <span id="annualTaxFreeIncome2"></span></p>
+    <p>Monthly Tax-Free Income: <span id="monthlyTaxFreeIncome2"></span></p>
+    <p>Monthly Income Tax (24%): <span id="monthlyIncomeTax2"></span></p>
+    <p>Monthly Net Salary: <span id="monthlyNetSalary2"></span></p>
+
+    <h3>Results for Annual Gross Salary 25,200€:</h3>
+    <p>Monthly Gross Salary: <span id="monthlyGrossSalary3"></span></p>
+    <p>Annual Tax-Free Income: <span id="annualTaxFreeIncome3"></span></p>
+    <p>Monthly Tax-Free Income: <span id="monthlyTaxFreeIncome3"></span></p>
+    <p>Monthly Income Tax (24%): <span id="monthlyIncomeTax3"></span></p>
+    <p>Monthly Net Salary: <span id="monthlyNetSalary3"></span></p>
+
+    <script>
+        function calculateTaxFreeIncome(annualIncome) {
+            if (annualIncome <= 14400) {
+                return 7848; // Full tax-free amount
+            } else if (annualIncome > 14400 && annualIncome <= 25200) {
+                return 7848 - (7848 / 10800) * (annualIncome - 14400);
+            } else {
+                return 0; // No tax-free income above 25200
+            }
+        }
+
+        function calculateSalary(annualGrossSalary, idSuffix) {
+            let taxFreeIncome = calculateTaxFreeIncome(annualGrossSalary);
+            let taxableIncome = annualGrossSalary - taxFreeIncome;
+            let incomeTax = taxableIncome * 0.24;
+
+            let monthlyGrossSalary = annualGrossSalary / 12;
+            let monthlyTaxFreeIncome = taxFreeIncome / 12;
+            let monthlyIncomeTax = incomeTax / 12;
+            let monthlyNetSalary = monthlyGrossSalary - monthlyIncomeTax;
+
+            document.getElementById("monthlyGrossSalary" + idSuffix).textContent = monthlyGrossSalary.toFixed(2) + " €";
+            document.getElementById("annualTaxFreeIncome" + idSuffix).textContent = taxFreeIncome.toFixed(2) + " €";
+            document.getElementById("monthlyTaxFreeIncome" + idSuffix).textContent = monthlyTaxFreeIncome.toFixed(2) + " €";
+            document.getElementById("monthlyIncomeTax" + idSuffix).textContent = monthlyIncomeTax.toFixed(2) + " €";
+            document.getElementById("monthlyNetSalary" + idSuffix).textContent = monthlyNetSalary.toFixed(2) + " €";
+        }
+
+        // Calculate for different salaries
+        calculateSalary(14400, 1);
+        calculateSalary(20200, 2);
+        calculateSalary(25200, 3);
+    </script>
+</body>
+</html>
