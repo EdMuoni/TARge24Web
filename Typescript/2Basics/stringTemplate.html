@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stringTemplate</title>
+</head>
+<body>
+
+    <p id="tereTulemast"></p>
+
+    <p id="someLoop"></p>
+
+</body>
+
+<script>
+    let firstName = "Heli";
+    let lastName = "Kopter";
+
+    let text = `Tere tulemast ${firstName}, ${lastName}!`;
+
+    document.getElementById("tereTulemast").innerHTML = text;
+
+    let title = "String Template";
+    let someLoop = ["C++", "JavaScript", "Typescript"];
+
+    document.getElementById("someLoop").innerHTML = `${title} <br> ${someLoop.join("<br>")}`;
+    // tulemus peaks olema selline:
+    // C++
+    // JavaScript
+    // Typescript
+
+    // Teine variant sellele
+
+    // let title = "String Template";
+    // let someLoop = ["C++", "JavaScript", "Typescript"];
+    // let forText = "";
+
+    // for (const x of someLoop) {
+    //   forText += `<li>${x}</li>`
+    // };
+    // document.getElementById("forText").innerHTML = forText;
+</script>
+</html>

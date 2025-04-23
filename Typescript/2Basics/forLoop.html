@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forLoop</title>
+</head>
+<body>
+    <p id="buildings"></p>
+
+    <p id="someIterations"></p>
+</body>
+<script>
+    const buildingTypes = ["Kortermaja", "Suvila", "Villa", "Mõis", "Ridaelamu"];
+
+    //Tuleb kasutada for loopi ja vähemalt viis elamutüüpi
+
+    const buildingList = document.createElement("ul");
+        buildingList.id = "buildingList";
+
+        for (let i = 0; i < buildingTypes.length; i++) {
+            const listItem = document.createElement("li");
+            listItem.textContent = buildingTypes[i];
+            buildingList.appendChild(listItem);
+        }
+
+        document.body.appendChild(buildingList);
+
+        //foreach
+        const numbers = [34, 6, 1, 89, 98];
+        let result = "";
+        numbers.forEach();
+        document.getElementById("someIterations").innerHTML = result;
+
+        function someIteration(value, index, array) {
+            result += value + "<br>";
+        }
+
+</script>
+</html>

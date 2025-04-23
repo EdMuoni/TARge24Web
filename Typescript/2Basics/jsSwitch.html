@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsSwitch</title>
+</head>
+<body>
+    <p id="getMonth"></p>
+
+    <p id="getDay"></p>
+</body>
+<script>
+    let month;
+    switch(new Date().getMonth()){
+        case 0:
+            month = "Jaanuari";
+            break;
+        case 1:
+            month = "Veebruari";
+            break;
+        case 2:
+            month = "Märtsi";
+            break;
+        case 3:
+            month = "Aprilli";
+            break;
+        case 4:
+            month = "Mai";
+            break;
+        case 5:
+            month = "Juuni";
+            break;
+    }
+
+    document.getElementById("getMonth").innerHTML = "Praegu on " + month + " kuu.";
+
+    let day;
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // Hangime nädala päeva numbri
+
+    switch (dayOfWeek) {
+        case 0:
+            day = "Pühapäev";
+            break;
+        case 1:
+            day = "Esmaspäev";
+            break;
+        case 2:
+            day = "Teisipäev";
+            break;
+        case 3:
+            day = "Kolmapäev";
+            break;
+        case 4:
+            day = "Neljapäev";
+            break;
+        case 5:
+            day = "Reede";
+            break;
+        case 6:
+            day = "Laupäev";
+            break;
+    }
+
+    let message = "";
+    if (dayOfWeek === 4 || dayOfWeek === 5) {
+        message = "Kohe on nädalavahetus!";
+    } else if (dayOfWeek === 6 || dayOfWeek === 0) {
+        message = "Praegu on nädalavahetus!";
+    } else {
+        message = "Praegu on " + day + " päev.";
+    }
+
+    document.getElementById("getDay").innerHTML = message;
+</script>
+</html>
