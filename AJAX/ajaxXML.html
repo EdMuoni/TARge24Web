@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxXML</title>
+</head>
+<body>
+    <div id="ajaxNames">
+        <p><h2>Nimed: </h2></p>
+        <button type="button" onclick="loadNames()">Laadi nimed üles</button>
+    </div>  
+</body>
+<script>
+        function loadNames() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    const namesArray = this.responseText.split("\n");
+                    const namesList = document.getElementById("ajaxNames");
+                    namesList.innerHTML = ''; 
+                    for (let i = 0; i < namesArray.length; i++) {
+                        const name = namesArray[i].trim();
+                        if (name !== "") { 
+                        const listItem = document.createElement("li");
+                        listItem.textContent = name;
+                        namesList.appendChild(listItem);
+                        }
+                    }
+                }
+            };
+            xhttp.open("GET", "ajaxNames.xml", true);
+            xhttp.send();
+        }
+</script>
+</html>
